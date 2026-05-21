@@ -1,10 +1,10 @@
-# <img src="https://raw.githubusercontent.com/marwin1991/profile-technology-icons/refs/heads/main/icons/python.png" width="40" height="40" valign="middle" alt="Python Logo"> Descrição da programação de limpeza e tratamento de dados através do Python/Pandas sobre a planilha de transportes de produtos perigosos/combustíveis.
+# <img src="https://raw.githubusercontent.com/marwin1991/profile-technology-icons/refs/heads/main/icons/python.png" width="40" height="40" valign="middle" alt="Python Logo"> DESCRIÇÃO DA PROGRAMAÇÃO DE LIMPEZA E TRATAMENTO DE DADOS ATRAVÉS DO PYTHON/PANDAS SOBRE A PLANILHA DE TRANSPORTES DE PRODUTOS PERIGOSOS/COMBUSTÍVEIS.
 
 ETL (Extract, Transform, Load - Extração, Transformação e Carga), focado na limpeza e padronização de dados logísticos de transporte de combustíveis.
 
 Aqui está a descrição detalhada, linha por linha, de cada ação executada pelo programa:
 
-## Part 1: Importação e Conexão com o Google Drive
+## PART 1: IMPORTAÇÃO E CONEXÃO COM O GOOGLE DRIVE
 
 Python
 import pandas as pd
@@ -22,7 +22,7 @@ Ação: Define variáveis de texto (strings) com o caminho da pasta (origem) e o
 
 ---
 
-## Part 2: Carga Inicial e Padronização de Texto
+## PART 2: CARGA INICIAL E PADRONIZAÇÃO DE TEXTO
 
 Python
 Dados_Padronizados = pd.read_csv(arq, sep=';')
@@ -38,7 +38,7 @@ Ação: Exibe na tela as 3 primeiras linhas da tabela para que você possa fazer
 
 ---
 
-## Part 3: Limpeza da Coluna de Quantidade
+## PART 3: LIMPEZA DA COLUNA DE QUANTIDADE
 
 Python
 Dados_Padronizados['Quantidade Transportada'] = (
@@ -56,7 +56,7 @@ Ação: Corrige a formatação numérica brasileira para o padrão americano/com
 
 ---
 
-## Part 4: Conversão de Unidades de Medida para Litros
+## PART 4: CONVERSÃO DE UNIDADES DE MEDIDA PARA LITROS
 
 Nesta etapa, o código identifica registros que não estão em litros e aplica fatores de conversão matemáticos baseados na regra de negócio do projeto:
 
