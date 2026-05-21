@@ -1,10 +1,10 @@
-# <img src="https://raw.githubusercontent.com/marwin1991/profile-technology-icons/refs/heads/main/icons/python.png" width="40" height="40" valign="middle" alt="Python Logo"> Descrição da programação de limpeza e tratamento de dados através do Python/Pandas sobre a planilha de transportes de produtos perigosos/combustíveis.
+# <img src="https://raw.githubusercontent.com/marwin1991/profile-technology-icons/refs/heads/main/icons/python.png" width="40" height="40" valign="middle" alt="Python Logo"> DESCRIÇÃO DA PROGRAMAÇÃO DE LIMPEZA E TRATAMENTO DE DADOS ATRAVÉS DO PYTHON/PANDAS SOBRE A PLANILHA DE TRANSPORTES DE PRODUTOS PERIGOSOS/COMBUSTÍVEIS.
 
 ETL (Extract, Transform, Load - Extração, Transformação e Carga), focado na limpeza e padronização de dados logísticos de transporte de combustíveis.
 
 Aqui está a descrição detalhada, linha por linha, de cada ação executada pelo programa:
 
-## Part 1: Importação e Conexão com o Google Drive
+## PART 1: IMPORTAÇÃO E CONEXÃO COM O GOOGLE DRIVE
 
 Python
 import pandas as pd
@@ -22,7 +22,7 @@ Ação: Define variáveis de texto (strings) com o caminho da pasta (origem) e o
 
 ---
 
-## Part 2: Carga Inicial e Padronização de Texto
+## PART 2: CARGA INICIAL E PADRONIZAÇÃO DE TEXTO
 
 Python
 Dados_Padronizados = pd.read_csv(arq, sep=';')
@@ -38,7 +38,7 @@ Ação: Exibe na tela as 3 primeiras linhas da tabela para que você possa fazer
 
 ---
 
-## Part 3: Limpeza da Coluna de Quantidade
+## PART 3: LIMPEZA DA COLUNA DE QUANTIDADE
 
 Python
 Dados_Padronizados['Quantidade Transportada'] = (
@@ -56,7 +56,7 @@ Ação: Corrige a formatação numérica brasileira para o padrão americano/com
 
 ---
 
-## Part 4: Conversão de Unidades de Medida para Litros
+## PART 4: CONVERSÃO DE UNIDADES DE MEDIDA PARA LITROS
 
 Nesta etapa, o código identifica registros que não estão em litros e aplica fatores de conversão matemáticos baseados na regra de negócio do projeto:
 
@@ -97,7 +97,7 @@ Dados_Padronizados.loc[mask_ton, 'Unidade de Medida'] = 'LITRO'
 Ação: Filtra linhas com "TONELADA". Multiplica por 1200
 ---
 
-## Part 5: Primeiro Filtro Temporal
+## PART 5: PRIMEIRO FILTRO TEMPORAL
 
 Python
 Dados_Padronizados['Ano'] = pd.to_numeric(Dados_Padronizados['Ano'], errors='coerce')
@@ -117,7 +117,7 @@ Ação: Exibe as 3 primeiras linhas pós-filtro temporal.
 
 ---
 
-## Part 6: Filtragem Avançada de Produtos e Mapeamento de UFs
+## PART 6: FILTRAGEM AVANÇADA DE PRODUTOS E MAPEAMENTO DE UFS
 
 Python
 df_filtrado = Dados_Padronizados[Dados_Padronizados['Produto'].str.contains('GASOLINA|ETANOL|DIESEL|GLP|COMBUSTIVEIS', na=False)].copy()
@@ -151,7 +151,7 @@ Ação: Configura o Pandas para mostrar números decimais na tela com apenas dua
 
 ---
 
-## Part 7: Cruzamento de Dados com Regiões Metropolitanas (Merge)
+## PART 7: CRUZAMENTO DE DADOS COM REGIÕES METROPOLITANAS (MERGE)
 
 Python
 caminho_regioes = origem + 'Regioes_adm_MAIUSCULO.csv'
@@ -199,7 +199,7 @@ Ação: Repete exatamente o mesmo processo de cruzamento anterior, mas agora foc
 
 ---
 
-## Part 8: Tratamento de Nulos e Formatação de Siglas
+## PART 8: TRATAMENTO DE NULOS E FORMATAÇÃO DE SIGLAS
 
 Python
 df_filtrado['RM_Origem'] = df_filtrado['RM_Origem'].astype(str).str.replace('REGIÃO METROPOLITANA', 'R.M.', regex=False)
@@ -219,7 +219,7 @@ Ação: Nova checagem visual das 3 primeiras linhas após a inserção das Regi�
 
 ---
 
-## Part 9: Cálculo Final e Exportação do Arquivo
+## PART 9: CÁLCULO FINAL E EXPORTAÇÃO DO ARQUIVO
 
 Python
 df_filtrado['Quantidade m³'] = df_filtrado['Quantidade Transportada'] / 1000
